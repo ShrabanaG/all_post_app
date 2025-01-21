@@ -8,10 +8,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        activeColor: "#0070f3",
+        inActiveColor: "#6b7280",
+        newsGroupTextBg: "rgba(241, 241, 241, 0.36)",
+      },
+      fontFamily: {
+        mulish: ["Mulish", "serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

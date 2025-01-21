@@ -1,21 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  @apply font-mulish;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.each-post-container,
+.favorite-post {
+  @apply max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 p-4;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.add-favorite-btn {
+  @apply w-[200px] h-[32px] rounded-lg bg-slate-300 border-gray-300 flex justify-center items-center shadow-md hover:text-red-500 transition-colors focus:outline-none cursor-pointer;
 }
