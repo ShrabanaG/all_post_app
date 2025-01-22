@@ -1,14 +1,20 @@
 "use client";
 
-import { useSelector } from "react-redux";
-import Link from "next/link";
+import { useSelector, useDispatch } from "react-redux";
+import { MdDeleteOutline } from "react-icons/md";
+import { removeFavorites } from "../redux/favoritesSlice";
 
 const Favorites = () => {
   const favorites = useSelector((state) => state.favorites.items);
+  const dispatch = useDispatch();
 
   if (favorites.length === 0) {
     return <p>No favorites yet</p>;
   }
+
+  const handleRemoveFavorite = (post) => {
+    dispatch(removeFavorites(post));
+  };
 
   return (
     <div>
@@ -18,6 +24,15 @@ const Favorites = () => {
           <div key={post.id} className="favorite-post">
             <h2 className="text-lg font-bold mb-4">{post.title}</h2>
             <p className="text-gray-700 text-sm">{post.body}</p>
+            <div
+              className="remove-favorite-btn"
+              onClick={() => handleRemoveFavorite(post)}
+            >
+              <span>
+                <MdDeleteOutline />
+              </span>
+              <span>Remove from Favorite</span>
+            </div>
           </div>
         ))}
       </div>

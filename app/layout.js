@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "./components/Sidebar";
 import Providers from "./redux/Providers";
+import SessionProviders from "./components/SessionProviders";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,12 +26,14 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex">
-          <Sidebar />
-          <main className="flex-1 p-3">
-            <Providers>{children}</Providers>
-          </main>
-        </div>
+        <SessionProviders>
+          <Providers>
+            <div className="flex">
+              <Sidebar />
+              <main className="flex-1 p-3">{children}</main>
+            </div>
+          </Providers>
+        </SessionProviders>
       </body>
     </html>
   );

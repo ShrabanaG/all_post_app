@@ -12,6 +12,7 @@
   @apply max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 p-4;
 }
 
-.add-favorite-btn {
+.add-favorite-btn,
+.remove-favorite-btn {
   @apply w-[200px] h-[32px] rounded-lg bg-slate-300 border-gray-300 flex justify-center items-center shadow-md hover:text-red-500 transition-colors focus:outline-none cursor-pointer;
 }
